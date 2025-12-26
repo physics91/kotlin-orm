@@ -1,0 +1,75 @@
+{
+  "categories": [
+    {
+      "title": "## Breaking Changes",
+      "labels": ["breaking-change", "breaking"]
+    },
+    {
+      "title": "## New Features",
+      "labels": ["feature", "enhancement"]
+    },
+    {
+      "title": "## Bug Fixes",
+      "labels": ["bug", "fix", "bugfix"]
+    },
+    {
+      "title": "## Performance",
+      "labels": ["performance", "optimization"]
+    },
+    {
+      "title": "## Documentation",
+      "labels": ["documentation", "docs"]
+    },
+    {
+      "title": "## Dependencies",
+      "labels": ["dependencies", "deps"]
+    },
+    {
+      "title": "## Other Changes",
+      "labels": []
+    }
+  ],
+  "ignore_labels": ["skip-changelog", "ignore"],
+  "sort": {
+    "order": "ASC",
+    "on_property": "mergedAt"
+  },
+  "template": "#{{CHANGELOG}}\n\n**Full Changelog**: #{{RELEASE_DIFF}}",
+  "pr_template": "- #{{TITLE}} (#{{NUMBER}}) @#{{AUTHOR}}",
+  "empty_template": "No changes.",
+  "max_tags_to_fetch": 200,
+  "max_pull_requests": 200,
+  "max_back_track_time_days": 365,
+  "exclude_merge_branches": ["main", "master", "develop"],
+  "tag_resolver": {
+    "method": "semver"
+  },
+  "transformers": [
+    {
+      "pattern": "\\[.*?\\]\\s*",
+      "target": ""
+    }
+  ],
+  "label_extractor": [
+    {
+      "pattern": "^(feat|feature).*",
+      "target": "feature",
+      "on_property": "title"
+    },
+    {
+      "pattern": "^(fix|bug).*",
+      "target": "bug",
+      "on_property": "title"
+    },
+    {
+      "pattern": "^(docs|doc).*",
+      "target": "documentation",
+      "on_property": "title"
+    },
+    {
+      "pattern": "^(perf).*",
+      "target": "performance",
+      "on_property": "title"
+    }
+  ]
+}
